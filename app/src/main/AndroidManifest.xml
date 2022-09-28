@@ -35,6 +35,8 @@
         <activity android:name=".SignUpActivity" />
         <!-- SignUpSuccess 성공 알림 클래스 추가 -->
         <activity android:name=".SignUpSuccess"></activity>
+        <activity android:name=".MarketActivity"></activity>
+
 
         <activity
             android:name=".MainActivity" android:exported="true">
