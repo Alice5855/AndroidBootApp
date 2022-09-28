@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MarketActivity"
+    tools:ignore="MissingDefaultResource"
+    android:gravity="center_horizontal"
+    >
+
+
+
+
+    <LinearLayout
+        android:layout_height="180dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10px"
+            app:srcCompat="@drawable/anibucket2"
+            android:scaleType="fitXY"
+            ></ImageView>
+
+
+    </LinearLayout>
+
+    <Space
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="애니버켓 화성점"
+            android:textColor="#000"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="도서,음반,문구"
+            android:textSize="15dp"
+            />
+
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        >
+
+        <RatingBar
+            android:layout_width="45dp"
+            android:layout_height="50dp"
+            android:progress="@integer/material_motion_duration_long_1"
+            android:progressBackgroundTint="#FFFFFF"
+            android:progressTint="#ff0000"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+
+            ></RatingBar>
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="4.6"
+            android:textColor="@color/black" />
+        <TextView
+            android:text="/5.0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="방문자 리뷰 3.827    블로그 리뷰 381"
+            android:textColor="#6688ff" />
+
+
+    </LinearLayout>
+    <TextView
+        android:background="@drawable/marketborder"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        />
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="horizontal"
+
+        >
+        <LinearLayout
+
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+               
+                android:layout_width="200dp"
+                android:layout_height="300dp"
+                app:srcCompat="@drawable/product0201"
+                android:layout_marginHorizontal="10dp"
+                />
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="300dp"
+                android:layout_marginHorizontal="10dp"
+                app:srcCompat="@drawable/product0202" />
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="300dp"
+                app:srcCompat="@drawable/product0203"
+                android:layout_marginHorizontal="10dp"/>
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="300dp"
+                app:srcCompat="@drawable/product0204"
+                android:layout_marginHorizontal="10dp"/>
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="300dp"
+                app:srcCompat="@drawable/product0205"
+                android:layout_marginHorizontal="10dp"/>
+
+
+        </LinearLayout>
+        
+    </HorizontalScrollView>
+ 
+</LinearLayout>
