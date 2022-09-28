@@ -1,10 +1,7 @@
 package com.example.androidbootapp;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
-
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -22,5 +19,9 @@ public class About extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
+        ActionBar ab = getSupportActionBar();
+        ab.hide();
+
+        }
+
     }
-}

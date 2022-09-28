@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private final  String TAG = getClass().getSimpleName();
 
-    Button btnSignIn, btnGoSignUp, btnAbout;
+    Button btnSignIn, btnGoSignUp, btnAbout, btnFaq;
     EditText signInId, signInPw;
 
     @Override
@@ -35,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
         signInId = (EditText) findViewById(R.id.signInId);
         signInPw = (EditText) findViewById(R.id.signInPw);
 
-
         btnGoSignUp = (Button) findViewById(R.id.btnGoSignUp);
         btnSignIn = (Button) findViewById(R.id.btnSignIn);
         btnAbout = (Button) findViewById(R.id.btnAbout);
+        btnFaq = (Button) findViewById(R.id.btnFaq);
 
         btnGoSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,5 +107,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnFaq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Faq.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 }

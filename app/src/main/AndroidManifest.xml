@@ -23,6 +23,9 @@
         <!-- About 클래스 추가 -->
         <activity android:name=".About" />
 
+        <!-- Faq 클래스 추가 -->
+        <activity android:name=".Faq" />
+
         <!-- SignUpActivity 처리 클래스 추가 -->
         <activity android:name=".SignUpActivity" />
         <!-- SignUpSuccess 성공 알림 클래스 추가 -->
