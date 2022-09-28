@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="382dp"
+            android:layout_height="110dp"
+            android:layout_weight="0.5"
+            app:srcCompat="@mipmap/testlogo1" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            app:srcCompat="@mipmap/testlogo2" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:id="@+id/scrollMainLayout"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/layout1"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    app:srcCompat="@mipmap/commu" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:paddingVertical="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="25dp"
+
+                    android:elevation="20dp"
+                    android:background="@color/white"
+                    android:text="We Claims it is not 'SubCulture', it is 'Alternative Society' \n \n Alternative Society는 \n'하위 문화' 가 아닌, \n'또 다른 사회' 를 꿈꿉니다."
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout2"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    app:srcCompat="@mipmap/about2" />
+
+                <TextView
+                    android:paddingVertical="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="25dp"
+                    android:elevation="20dp"
+                    android:background="@color/white"
+                    android:text="Alternative Society에서는 \n metaverse 시대의 개막에 맞춰 \n 메타-사회 구축을 준비중에 있습니다."
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout3"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="20dp"
+                    app:srcCompat="@mipmap/qna" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:paddingVertical="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="25dp"
+
+                    android:elevation="20dp"
+                    android:background="@color/white"
+                    android:text="AniBucket\n Offline / Online shop of Alternative Society\n AniBucket은 Alternative Society의\n오프라인 / 온라인 매장입니다."
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
+
+            </LinearLayout>
+        </LinearLayout
+            >
+    </ScrollView>
+</LinearLayout>
