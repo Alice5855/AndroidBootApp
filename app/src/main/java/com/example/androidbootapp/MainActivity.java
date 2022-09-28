@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private final  String TAG = getClass().getSimpleName();
 
-    Button btnSignIn, btnGoSignUp;
+    Button btnSignIn, btnGoSignUp, btnAbout;
     EditText signInId, signInPw;
 
     @Override
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnGoSignUp = (Button) findViewById(R.id.btnGoSignUp);
         btnSignIn = (Button) findViewById(R.id.btnSignIn);
+        btnAbout = (Button) findViewById(R.id.btnAbout);
 
         btnGoSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +97,14 @@ public class MainActivity extends AppCompatActivity {
                         Log.d(TAG,"Fail msg : " + t.getMessage());
                     }
                 });
+            }
+        });
+
+        btnAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), About.class);
+                startActivity(intent);
             }
         });
     }
