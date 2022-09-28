@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -72,10 +71,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         menu.add(2, 3, 0, "로그아웃");
         menu.add(1, 4, 0, "로그인");
         menu.add(1, 5, 0, "회원가입");
-        SubMenu sMenu = menu.addSubMenu("오프샵 바로가기 >>");
+
+        SubMenu sMenu = menu.addSubMenu("오프샵 바로가기");
         sMenu.add(0, 6, 0, "화성점");
         sMenu.add(0, 7, 0, "부천점");
         sMenu.add(0, 8, 0, "구로점");
+
+        SubMenu sMenu2 = menu.addSubMenu("서브 페이지");
+        sMenu2.add(3, 9, 0, "회사 소개");
+        sMenu2.add(3, 10, 0, "Contact Us");
 
         return true;
     }
@@ -85,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         Intent getIntent = getIntent();
         // Toast.makeText(getApplicationContext(), getIntent().getStringExtra("login"), Toast.LENGTH_SHORT).show();
         if (getIntent.getStringExtra("login").equals("1")) {
-            menu.setGroupVisible(2,true);
+            menu.setGroupVisible(1,true);
             menu.setGroupVisible(1, false);
         } else {
             menu.setGroupVisible(1,true);
@@ -106,14 +110,17 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             case 3:
                 Intent signout = new Intent(getApplicationContext(), MainActivity.class);
                 signout.putExtra("login", "0");
+
                 startActivity(signout);
                 return true;
             case 4:
                 Intent signin = new Intent(getApplicationContext(), SignInActivity.class);
+
                 startActivity(signin);
                 return true;
             case 5:
                 Intent signup = new Intent(getApplicationContext(), SignUpActivity.class);
+
                 startActivity(signup);
                 return true;
             case 6:
@@ -128,6 +135,21 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(
                         37.503267, 126.881071), 15));
                 return true;
+            case 9:
+                // activity
+
+                return true;
+            case 10:
+                Intent contactus = new Intent(getApplicationContext(), ContactUs.class);
+
+                Intent getIntent = getIntent();
+                if (getIntent.getStringExtra("login").equals("1")) {
+                    contactus.putExtra("login", "1");
+                } else {
+                    contactus.putExtra("login", "0");
+                }
+                
+                startActivity(contactus);
         }
         return false;
     }

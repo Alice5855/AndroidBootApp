@@ -3,11 +3,13 @@ package com.example.androidbootapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.androidbootapp.retrofit.User;
@@ -27,6 +29,8 @@ public class SignInActivity extends AppCompatActivity {
     Button btnSignIn, btnGoSignUp;
     EditText signInId, signInPw;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +42,10 @@ public class SignInActivity extends AppCompatActivity {
 
         btnGoSignUp = (Button) findViewById(R.id.btnGoSignUp);
         btnSignIn = (Button) findViewById(R.id.btnSignIn);
+
+        getSupportActionBar().setTitle("AniBucket 매장 찾기");
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         btnGoSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,5 +107,16 @@ public class SignInActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
