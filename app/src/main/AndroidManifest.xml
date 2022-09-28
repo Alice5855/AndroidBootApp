@@ -35,6 +35,9 @@
         <activity android:name=".About" />
         <activity android:name=".ContactUs" />
         <activity android:name=".Faq" />
+        <activity android:name=".MarketFirstActivity" />
+        <activity android:name=".MarketSecondActivity" />
+        <activity android:name=".MarketThirdActivity" />
 
         <activity
             android:name=".MainActivity" android:exported="true">

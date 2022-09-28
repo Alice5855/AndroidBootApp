@@ -184,14 +184,38 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public boolean onMarkerClick(Marker marker) {
         if (marker.equals(hMarker)){
-            Toast.makeText(this, "hMarker Clicked", Toast.LENGTH_SHORT).show();
-            Log.d("markerlog", "hMarker");
+            Intent market2 = new Intent(getApplicationContext(), MarketSecondActivity.class);
+            Intent getIntent = getIntent();
+
+            if (getIntent.getStringExtra("login").equals("1")) {
+                market2.putExtra("login", "1");
+            } else {
+                market2.putExtra("login", "0");
+            }
+
+            startActivity(market2);
         } else if (marker.equals(bMarker)){
-            Toast.makeText(this, "bMarker Clicked", Toast.LENGTH_SHORT).show();
-            Log.d("markerlog", "bMarker");
+            Intent market3 = new Intent(getApplicationContext(), MarketThirdActivity.class);
+            Intent getIntent = getIntent();
+
+            if (getIntent.getStringExtra("login").equals("1")) {
+                market3.putExtra("login", "1");
+            } else {
+                market3.putExtra("login", "0");
+            }
+
+            startActivity(market3);
         } else if (marker.equals(gMarker)){
-            Toast.makeText(this, "gMarker Clicked", Toast.LENGTH_SHORT).show();
-            Log.d("markerlog", "gMarker");
+            Intent market1 = new Intent(getApplicationContext(), MarketFirstActivity.class);
+            Intent getIntent = getIntent();
+
+            if (getIntent.getStringExtra("login").equals("1")) {
+                market1.putExtra("login", "1");
+            } else {
+                market1.putExtra("login", "0");
+            }
+
+            startActivity(market1);
         }
         return false;
     }
