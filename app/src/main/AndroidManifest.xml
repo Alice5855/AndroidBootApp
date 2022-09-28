@@ -2,6 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.androidbootapp">
 
+    <uses-feature android:required="true" android:glEsVersion="0x00020000"/>
+    <permission android:name="com.example.androidbootapp.permission.MAPS_RECEIVE" android:label="signature"></permission>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <meta-data android:name ="com.google.android.gms.version"    android:value = "@integer/google_play_services_version"/>
+
     <!-- INTERNET uses-permission 추가 : 안드로이드 앱 http 통신 허용 -->
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -13,13 +23,14 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/anibucket"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/anibucket_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.AndroidBootApp">
 
+        <activity android:name=".SignInActivity" />
         <!-- SignUpActivity 처리 클래스 추가 -->
         <activity android:name=".SignUpActivity" />
         <!-- SignUpSuccess 성공 알림 클래스 추가 -->
@@ -33,6 +44,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyAloVfM6sIyihE4QNGIP1RLU4xR2tPFp24"/>
     </application>
 
 </manifest>

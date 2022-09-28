@@ -2,101 +2,145 @@ package com.example.androidbootapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.SubMenu;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.androidbootapp.retrofit.User;
-import com.example.androidbootapp.retrofit.UserApi;
-import com.squareup.moshi.Moshi;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.GroundOverlayOptions;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.moshi.MoshiConverterFactory;
-
-public class MainActivity extends AppCompatActivity {
-
-    private final  String TAG = getClass().getSimpleName();
-
-    Button btnSignIn, btnGoSignUp;
-    EditText signInId, signInPw;
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+    GoogleMap gMap;
+    MapFragment mapFrag;
+    GroundOverlayOptions videoMark;
+    private Marker hMarker;
+    private Marker bMarker;
+    private Marker gMarker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.anibucket_foreground);
+        setTitle("AniBucket 매장 찾기");
+        if (getIntent().getStringExtra("login") == null) {
+            getIntent().putExtra("login", "0");
+        }
 
-        signInId = (EditText) findViewById(R.id.signInId);
-        signInPw = (EditText) findViewById(R.id.signInPw);
+        mapFrag = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+        mapFrag.getMapAsync(this);
+    }
 
+    @Override
+    public void onMapReady(GoogleMap map) {
+        gMap = map;
+        gMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        gMap.getUiSettings().setZoomControlsEnabled(true);
+        gMap.setOnMarkerClickListener(this);
 
-        btnGoSignUp = (Button) findViewById(R.id.btnGoSignUp);
-        btnSignIn = (Button) findViewById(R.id.btnSignIn);
+        LatLng hwasung = new LatLng(37.135418, 126.909661);
+        LatLng bucheon = new LatLng(37.484771, 126.783472);
+        LatLng guro = new LatLng(37.503267, 126.881071);
 
-        btnGoSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
-                startActivity(intent);
-            }
-        });
+        hMarker = gMap.addMarker(new MarkerOptions().position(hwasung).title("화성점").snippet("AniBucket 화성점입니다")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+        bMarker = gMap.addMarker(new MarkerOptions().position(bucheon).title("부천점").snippet("AniBucket 부천점입니다")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+        gMarker = gMap.addMarker(new MarkerOptions().position(guro).title("구로점").snippet("AniBucket 구로점입니다")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+        gMap.moveCamera(CameraUpdateFactory.newLatLng(guro));
+    }
 
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String id = signInId.getText().toString();
-                String pw = signInPw.getText().toString();
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
 
-                User loginInfo = new User();
-                loginInfo.setUserId(id);
-                loginInfo.setUserPassword(pw);
+        menu.add(0, 1, 0, "위성 지도");
+        menu.add(0, 2, 0, "일반 지도");
+        menu.add(2, 3, 0, "로그아웃");
+        menu.add(1, 4, 0, "로그인");
+        menu.add(1, 5, 0, "회원가입");
+        SubMenu sMenu = menu.addSubMenu("오프샵 바로가기 >>");
+        sMenu.add(0, 6, 0, "화성점");
+        sMenu.add(0, 7, 0, "부천점");
+        sMenu.add(0, 8, 0, "구로점");
 
-                Moshi moshi = new Moshi.Builder().build();
+        return true;
+    }
 
-//                String json = moshi.adapter(User.class).indent("  ").toJson(loginInfo);
-//                System.out.println(json);
+    @Override
+    public boolean onPrepareOptionsMenu(@NonNull Menu menu) {
+        Intent getIntent = getIntent();
+        // Toast.makeText(getApplicationContext(), getIntent().getStringExtra("login"), Toast.LENGTH_SHORT).show();
+        if (getIntent.getStringExtra("login").equals("1")) {
+            menu.setGroupVisible(2,true);
+            menu.setGroupVisible(1, false);
+        } else {
+            menu.setGroupVisible(1,true);
+            menu.setGroupVisible(2,false);
+        }
+        return super.onPrepareOptionsMenu(menu);
+    }
 
-                // Retrofit 객체 생성 및 MoshiConverter 추가
-                Retrofit retrofit = new Retrofit.Builder()
-//                      .baseUrl("http://InsertYourIP:9003/")
-                        .baseUrl("http://192.168.0.111:9004/")
-                        .addConverterFactory(MoshiConverterFactory.create(moshi))
-                        .build();
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case 1:
+                gMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                return true;
+            case 2:
+                gMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                return true;
+            case 3:
+                Intent signout = new Intent(getApplicationContext(), MainActivity.class);
+                signout.putExtra("login", "0");
+                startActivity(signout);
+                return true;
+            case 4:
+                Intent signin = new Intent(getApplicationContext(), SignInActivity.class);
+                startActivity(signin);
+                return true;
+            case 5:
+                Intent signup = new Intent(getApplicationContext(), SignUpActivity.class);
+                startActivity(signup);
+                return true;
+            case 6:
+                gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(
+                        37.135418, 126.909661), 15));
+                return true;
+            case 7:
+                gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(
+                        37.484771, 126.783472), 15));
+                return true;
+            case 8:
+                gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(
+                        37.503267, 126.881071), 15));
+                return true;
+        }
+        return false;
+    }
 
-                UserApi api = retrofit.create(UserApi.class);
-
-                Call<Boolean> call = api.postUser(loginInfo);
-                call.enqueue(new Callback<Boolean>() {
-                    // Controller에서 response.isSuccessful 응답 성공(또는 실패) 시 처리할 프로세스 정의
-                    @Override
-                    public void onResponse(Call<Boolean> call, Response<Boolean> response) {
-                        if (response.isSuccessful()){
-                            boolean userExists = response.body();
-
-                            if (userExists) {
-                                Intent intent = new Intent(getApplicationContext(), SignUpSuccess.class);
-                                startActivity(intent);
-                            } else {
-                                Toast.makeText(getApplicationContext(), "아이디 혹은 비밀번호가 일치하지 않습니다", Toast.LENGTH_SHORT).show();
-                            }
-
-                        } else {
-                            Log.d(TAG,"Status Code : " + response.code());
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<Boolean> call, Throwable t) {
-                        Log.d(TAG,"Fail msg : " + t.getMessage());
-                    }
-                });
-            }
-        });
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        if (marker.equals(hMarker)){
+            // activity
+        } else if (marker.equals(bMarker)){
+            // activity
+        } else if (marker.equals(gMarker)){
+            // activity
+        }
+        return false;
     }
 }

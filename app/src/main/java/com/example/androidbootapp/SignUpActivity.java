@@ -43,7 +43,7 @@ public class SignUpActivity extends AppCompatActivity {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
                 startActivity(intent);
             }
         });
@@ -78,7 +78,7 @@ public class SignUpActivity extends AppCompatActivity {
                         boolean signUpSuccess = response.body();
 
                         if (signUpSuccess){
-                            Intent intent = new Intent(getApplicationContext(),  MainActivity.class);
+                            Intent intent = new Intent(getApplicationContext(),  SignInActivity.class);
                             startActivity(intent);
                         } else {
                             Toast.makeText(getApplicationContext(), "회원가입에 실패하였습니다", Toast.LENGTH_SHORT).show();
