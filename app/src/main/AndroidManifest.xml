@@ -32,7 +32,9 @@
 
         <activity android:name=".SignInActivity" />
         <activity android:name=".SignUpActivity" />
+        <activity android:name=".About" />
         <activity android:name=".ContactUs" />
+        <activity android:name=".Faq" />
 
         <activity
             android:name=".MainActivity" android:exported="true">

@@ -1,23 +1,27 @@
 package com.example.androidbootapp;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Faq extends AppCompatActivity {
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faq);
 
-        ActionBar ab = getSupportActionBar();
-        ab.hide();
+        getSupportActionBar().setTitle("AniBucket 매장 찾기");
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         LinearLayout loMain, lo1, lo2, lo3, lo4, lo5, lo6, lo7, lo8;
         Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8 ;
@@ -149,9 +153,17 @@ public class Faq extends AppCompatActivity {
                 }
             }
         });
-
-
-
-
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

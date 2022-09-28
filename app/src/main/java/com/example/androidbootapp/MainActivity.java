@@ -2,9 +2,11 @@ package com.example.androidbootapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +21,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import retrofit2.http.Tag;
+
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
     GoogleMap gMap;
     MapFragment mapFrag;
@@ -32,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.mipmap.anibucket_foreground);
+        getSupportActionBar().setIcon(R.drawable.logo60x40);
         setTitle("AniBucket 매장 찾기");
         if (getIntent().getStringExtra("login") == null) {
             getIntent().putExtra("login", "0");
@@ -80,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         SubMenu sMenu2 = menu.addSubMenu("서브 페이지");
         sMenu2.add(3, 9, 0, "회사 소개");
         sMenu2.add(3, 10, 0, "Contact Us");
+        sMenu2.add(3, 11, 0, "FAQ");
 
         return true;
     }
@@ -136,20 +141,42 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         37.503267, 126.881071), 15));
                 return true;
             case 9:
-                // activity
+                Intent about = new Intent(getApplicationContext(), About.class);
+                Intent getIntent1 = getIntent();
+
+                if (getIntent1.getStringExtra("login").equals("1")) {
+                    about.putExtra("login", "1");
+                } else {
+                    about.putExtra("login", "0");
+                }
+
+                startActivity(about);
 
                 return true;
             case 10:
                 Intent contactus = new Intent(getApplicationContext(), ContactUs.class);
+                Intent getIntent2 = getIntent();
 
-                Intent getIntent = getIntent();
-                if (getIntent.getStringExtra("login").equals("1")) {
+                if (getIntent2.getStringExtra("login").equals("1")) {
                     contactus.putExtra("login", "1");
                 } else {
                     contactus.putExtra("login", "0");
                 }
                 
                 startActivity(contactus);
+                return true;
+            case 11:
+                Intent faq = new Intent(getApplicationContext(), Faq.class);
+                Intent getIntent3 = getIntent();
+
+                if (getIntent3.getStringExtra("login").equals("1")) {
+                    faq.putExtra("login", "1");
+                } else {
+                    faq.putExtra("login", "0");
+                }
+
+                startActivity(faq);
+
         }
         return false;
     }
@@ -157,11 +184,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public boolean onMarkerClick(Marker marker) {
         if (marker.equals(hMarker)){
-            // activity
+            Toast.makeText(this, "hMarker Clicked", Toast.LENGTH_SHORT).show();
+            Log.d("markerlog", "hMarker");
         } else if (marker.equals(bMarker)){
-            // activity
+            Toast.makeText(this, "bMarker Clicked", Toast.LENGTH_SHORT).show();
+            Log.d("markerlog", "bMarker");
         } else if (marker.equals(gMarker)){
-            // activity
+            Toast.makeText(this, "gMarker Clicked", Toast.LENGTH_SHORT).show();
+            Log.d("markerlog", "gMarker");
         }
         return false;
     }
