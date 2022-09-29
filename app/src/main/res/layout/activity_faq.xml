@@ -63,6 +63,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/outliner"
                     android:textSize="18dp"
+                    android:textColor="#000"
                     android:text="AniBucket 은 SubCulture 굿즈와 \n 각종 이벤트 상품들을 판매하는 \nAlternative Society가 제공하는\n 온 / 오프라인 샵입니다."
                     android:textAlignment="center" />
 
@@ -90,6 +91,7 @@
                     android:layout_height="wrap_content"
                     android:paddingVertical="10dp"
                     android:textSize="18dp"
+                    android:textColor="#000"
                     android:background="@drawable/outliner"
                     android:text="공식 홈페이지의 FIND 페이지 또는\n 안드로이드 애플리케이션에서\n 오프라인 몰의 위치를\n 확인하실 수 있습니다."
                     android:textAlignment="center" />
@@ -118,6 +120,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
+                    android:textColor="#000"
                     android:background="@drawable/outliner"
                     android:text="상품 구매는 온라인 쇼핑몰이나\n 오프라인 쇼핑몰을 방문해주시기\n 바랍니다."
                     android:textAlignment="center" />
@@ -146,6 +149,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
+                    android:textColor="#000"
                     android:background="@drawable/outliner"
                     android:text="환불 관련은 aniBucket@alternativesociety.com\n 또는 02 0000 - 0000 를 통해\n 문의주시기 바랍니다. \n상담 시간 09:00 - 18:00"
                     android:textAlignment="center" />
@@ -174,6 +178,7 @@
                     android:textSize="18dp"
                     android:paddingVertical="10dp"
                     android:layout_height="wrap_content"
+                    android:textColor="#000"
                     android:background="@drawable/outliner"
                     android:text="최신 상품의 구매정보는 \n쇼핑몰에서 확인할 수 있습니다.\n 현재 웹사이트의 공지사항\n 페이지에서도 확인 가능하니 \n많은 이용 바랍니다."
                     android:textAlignment="center" />
@@ -202,6 +207,7 @@
                     android:paddingVertical="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="#000"
                     android:background="@drawable/outliner"
                     android:text="QnA게시판의 글 목록에서 우측의 \n[답변 없음] 이 [답변 완료] 로\n 바뀌면 답변을 확인하시면 됩니다."
                     android:textAlignment="center" />
@@ -230,6 +236,7 @@
                     android:paddingVertical="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="#000"
                     android:background="@drawable/outliner"
                     android:text="recruit@alternativesociety.com로\n 메일 주시거나 메인 페이지의 \nContact Us 폼을 통해\n 지원하실 수 있습니다."
                     android:textAlignment="center" />
@@ -259,6 +266,7 @@
                     android:paddingVertical="10dp"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
+                    android:textColor="#000"
                     android:background="@drawable/outliner"
                     android:text="광고 및 협업 문의는\n admin@alternativesociety.com 또는 \n02 0000 - 0000 를 \n통해 문의주시기 바랍니다. \n상담 시간 09:00 - 18:00"
                     android:textAlignment="center" />

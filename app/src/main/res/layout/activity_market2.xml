@@ -46,7 +46,6 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="애니버켓 화성점"
-            android:textColor="#000"
             android:textSize="25dp"
             android:textStyle="bold" />
 
@@ -83,8 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:text="4.6"
-            android:textColor="@color/black" />
+            android:text="4.6" />
         <TextView
             android:text="/5.0"
             android:layout_width="wrap_content"

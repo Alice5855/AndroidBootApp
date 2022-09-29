@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:gravity="center">
 
     <LinearLayout
         android:layout_margin="20dp"
@@ -63,6 +64,7 @@
 
                     android:elevation="20dp"
                     android:background="@color/white"
+                    android:textColor="#000"
                     android:text="We Claims it is not 'SubCulture', it is 'Alternative Society' \n \n Alternative Society는 \n'하위 문화' 가 아닌, \n'또 다른 사회' 를 꿈꿉니다."
                     android:textAlignment="center"
                     android:textSize="20dp" />
@@ -89,6 +91,7 @@
                     android:layout_margin="25dp"
                     android:elevation="20dp"
                     android:background="@color/white"
+                    android:textColor="#000"
                     android:text="Alternative Society에서는 \n metaverse 시대의 개막에 맞춰 \n 메타-사회 구축을 준비중에 있습니다."
                     android:textAlignment="center"
                     android:textSize="20dp" />
@@ -114,7 +117,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="25dp"
-
+                    android:textColor="#000"
                     android:elevation="20dp"
                     android:background="@color/white"
                     android:text="AniBucket\n Offline / Online shop of Alternative Society\n AniBucket은 Alternative Society의\n오프라인 / 온라인 매장입니다."

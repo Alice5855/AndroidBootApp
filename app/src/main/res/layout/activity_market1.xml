@@ -46,7 +46,6 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="애니버켓 구로점"
-            android:textColor="#000"
             android:textSize="25dp"
             android:textStyle="bold" />
 
@@ -81,7 +80,6 @@
 
             android:gravity="center_vertical"
             android:text="4.5"
-            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView

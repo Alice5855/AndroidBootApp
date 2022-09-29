@@ -24,7 +24,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/anibucket"
-        android:label="@string/app_name"
+        android:label="AniBucket"
         android:roundIcon="@mipmap/anibucket_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
